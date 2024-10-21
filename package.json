@@ -8,9 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run ui-lib:storybook",
-    "build-storybook": "ng run ui-lib:build-storybook"
+    "build-storybook": "ng run ui-lib:build-storybook",
+    "build:scss": "node build.js"
   },
   "private": true,
+  "type": "module",
   "dependencies": {
     "@angular/animations": "^18.2.0",
     "@angular/common": "^18.2.0",
@@ -51,6 +53,10 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^18.2.0",
     "storybook": "^8.3.5",
+    "style-dictionary": "*",
     "typescript": "~5.5.2"
+  },
+  "peerDependencies": {
+    "style-dictionary": "^4.1.4"
   }
 }
