@@ -1,4 +1,4 @@
-name: Convert JSON to SCSS
+name: Convert JSON to to SCSS
 
 on:
   push:
