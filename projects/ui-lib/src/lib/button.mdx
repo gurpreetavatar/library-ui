@@ -1,0 +1,53 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { ButtonComponent } from './button.component';
+
+// MDX file for Button Component
+<Meta title="UI/Button" component={ButtonComponent} />
+
+# Button Variants
+
+<ButtonComponent appearance="primary" buttonContent="Primary Button" />
+
+This is the primary button style, typically used for main actions.
+
+<ButtonComponent appearance="outline" buttonContent="Outline Button" />
+
+The outline button can be used for secondary actions.
+
+## Props
+
+Below are the props that can be passed to the button component.
+
+<ArgsTable of={ButtonComponent} />
+
+## Examples
+
+### Primary Button
+
+This is an example of the primary button:
+
+<Canvas>
+  <Story name="Primary">
+    {() => ({
+      props: {
+        appearance: 'primary',
+        buttonContent: 'Primary Button',
+      },
+    })}
+  </Story>
+</Canvas>
+
+### Outline Button
+
+This is an example of the outline button:
+
+<Canvas>
+  <Story name="Secondary">
+    {() => ({
+      props: {
+        appearance: 'outline',
+        buttonContent: 'Outline Button',
+      },
+    })}
+  </Story>
+</Canvas>
