@@ -30,7 +30,7 @@ jobs:
       # Convert the JSON tokens to SCSS
       - name: Convert JSON to SCSS
         run: |
-          json-sass ./tokens.json > ./src/styles/tokens.scss
+          json-sass ./tokens.json > ./tokens.scss
 
       # Commit and push the SCSS changes back to the repository
       - name: Commit and push changes
