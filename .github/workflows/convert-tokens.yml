@@ -1,6 +1,5 @@
 name: Convert JSON to SCSS
 
-# Trigger the action on push to main branch or on pull request
 on:
   push:
     branches:
@@ -14,29 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the repository
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    # Set up Node.js environment
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.x'
+      # Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
 
-    # Install dependencies if you have a package.json (skip if none)
-    - name: Install dependencies
-      run: npm install
+      # Install json-sass (or another CLI tool that converts JSON to SCSS)
+      - name: Install json-sass
+        run: npm install -g json-sass
 
-    # Run the conversion script
-    - name: Run conversion script
-      run: node convert.js
+      # Convert the JSON tokens to SCSS
+      - name: Convert JSON to SCSS
+        run: |
+          json-sass ./tokens.json > ./src/styles/tokens.scss
 
-    # Commit and push the SCSS output
-    - name: Commit and Push changes
-      run: |
-        git config --local user.name "github-actions[bot]"
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git add build/_variables.scss
-        git commit -m "Auto-generated SCSS variables from JSON tokens" || echo "No changes to commit"
-        git push origin HEAD:main
+      # Commit and push the SCSS changes back to the repository
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add ./src/styles/tokens.scss
+          git commit -m 'Auto-generated SCSS from JSON tokens'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
