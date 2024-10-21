@@ -39,4 +39,4 @@ jobs:
           git config --global user.email 'action@github.com'
           git add ./tokens.scss
           git commit -m 'Auto-generated SCSS from JSON tokens'
-          git push https://x-access-token:${{ secrets.WORK_FLOW }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+          git push https://x-access-token:${{ secrets.WORK_FLOW }}@github.com/${{ github.repository }} HEAD:master
