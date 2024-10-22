@@ -27,6 +27,18 @@ jobs:
       - name: Install json-sass
         run: npm install -g json-sass
 
+# Install json-sass (or another CLI tool that converts JSON to SCSS)
+      - name: Install Changeset
+        run: npm install @changesets/cli && npx changeset init
+
+# Install json-sass (or another CLI tool that converts JSON to SCSS)
+      - name: Changeset Run
+        run: npx changeset version
+
+# Install json-sass (or another CLI tool that converts JSON to SCSS)
+      - name: Changeset Publish
+        run: npx changeset publish
+
       # Convert the JSON tokens to SCSS
       - name: Convert JSON to SCSS
         run: |
