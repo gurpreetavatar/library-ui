@@ -18,13 +18,13 @@ type Story = StoryObj<ButtonComponent>;
 export const Primary: Story = {
   args: {
     appearance: 'primary',
-    buttonContent: 'Primary Button',
+    buttonContent: 'My Name',
   },
 };
 
 export const Secondary: Story = {
   args: {
     appearance: 'outline',
-    buttonContent: 'Outline Button',
+    buttonContent: 'Outline',
   },
 };
