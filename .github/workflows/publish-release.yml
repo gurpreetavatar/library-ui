@@ -2,8 +2,7 @@ name: Package Release
 
 on:
   push:
-    branches:
-      - staging
+    branches: [staging]
     paths:
       - 'CHANGELOG.md'
 
