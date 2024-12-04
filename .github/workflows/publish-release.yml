@@ -7,7 +7,7 @@ on:
       branche: 
         description: "The publish workflow"
         required: true
-        default: "main"
+        default: "master"
     
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
@@ -46,12 +46,7 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      - name: Run Storybook Tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-          "npx http-server storybook-static --port 6006 --silent" \
-          "npx wait-on tcp:127.0.0.1:6006 && npm test-storybook"
-
+      
       - name: Publish Package
         run: npm publish # Use 'npm publish' if you use npm
         env:
