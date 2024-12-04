@@ -35,10 +35,10 @@ jobs:
         run: npm install # Use 'npm install' if you don't use npm
 
       - name: Build Angular Library
-        run: npm build # Replace 'build:lib' with your specific build command for the library
+        run: npm run build # Replace 'build:lib' with your specific build command for the library
 
       - name: Build Storybook
-        run: npm build-storybook # Replace 'npm' with 'npm' if needed
+        run: npm run build-storybook # Replace 'npm' with 'npm' if needed
 
       - name: Install Playwright
         run: npx playwright install --with-deps
