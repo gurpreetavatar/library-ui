@@ -2,8 +2,7 @@ name: Release Branch & PR
 
 on:
   push:
-    branches:
-      - dev
+    branches: [dev]
     paths:
       - 'CHANGELOG.md'
 

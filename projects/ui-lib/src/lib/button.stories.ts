@@ -18,7 +18,7 @@ type Story = StoryObj<ButtonComponent>;
 export const Primary: Story = {
   args: {
     appearance: 'primary',
-    buttonContent: 'ddddd',
+    buttonContent: 'My Name',
   },
 };
 
